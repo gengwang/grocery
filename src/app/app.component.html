@@ -1,0 +1,8 @@
+<div class="container">
+  <h4 class="text-muted">My Gorcery List</h4>
+  <app-receipt-message [message]='message'></app-receipt-message>
+</div>
+<div class="container">
+  <app-receipt-details [receipt]='receipt' (onReceiptChange)='handleReceiptChange($event)'></app-receipt-details>
+  <app-receipt-summary [receipt]='receipt'></app-receipt-summary>
+</div>

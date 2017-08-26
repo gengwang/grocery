@@ -1,0 +1,37 @@
+<div class="container">
+  <table class="table table-sm">
+    <thead class="thead-default">
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let entry of entries'
+      [@trans]="'in'">
+        <td>{{entry.name}}</td>
+        <td>
+          <select name="" id="" [(ngModel)]='entry.quantity'>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </td>
+        <td><input type="text" [(ngModel)]="entry.unitPrice"></td>
+        <th (click)='removeEntry(entry)'><i class="fa fa-minus-circle text-danger" aria-hidden="true"></i></th>
+      </tr>
+    </tbody>
+    <tfoot>
+      <th colspan="4" (click)='addEntry()'><i class="fa fa-plus-circle" aria-hidden="true"></i></th>
+    </tfoot>
+  </table>
+</div>
