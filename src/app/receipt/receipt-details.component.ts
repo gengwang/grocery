@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
-import { Entry, Receipt } from "../shared/receipt";
+import { Entry, Receipt, GroceryType } from "../shared/receipt";
 import {
   trigger,
   state,
@@ -29,8 +29,18 @@ export class ReceiptDetailsComponent implements OnInit {
   @Input() receipt: Receipt;
   @Output() onReceiptChange = new EventEmitter<Receipt>();
   entries: Entry[];
-  formattedQuantity():string {
-    return "kkk";
+  allGroceryTypes():object[] {
+    let result = [];
+    for (let t in GroceryType) {
+      if(isNaN(Number(t))) {
+        result.push(t);
+      }
+    }
+    result = result.map((d, i)=> {
+      return {index: i, name: d};
+    })
+    
+    return result;
   }
 
   removeEntry(entry:Entry) {

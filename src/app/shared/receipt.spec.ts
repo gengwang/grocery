@@ -1,4 +1,4 @@
-import { Entry, Receipt } from './receipt';
+import { Entry, Receipt, GroceryType } from './receipt';
 
 describe('Receipt', () => {
   it('should create an instance', () => {
@@ -6,8 +6,8 @@ describe('Receipt', () => {
   });
 
   it('should get correct total price', () => {
-    let hotDog = new Entry("hot dog", 1.2, 2);
-    let eggs = new Entry("eggs", 2.36, 1);
+    let hotDog = new Entry("hot dog", 1.2, 2, GroceryType.Meat);
+    let eggs = new Entry("eggs", 2.36, 1, GroceryType.Dairy);
     let receipt = new Receipt( [hotDog, eggs] );
     expect(receipt.totalPrice).toEqual(4.76);
 
